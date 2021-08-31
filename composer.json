@@ -1,0 +1,53 @@
+{
+    "name": "webalternatif/flysystem-dsn-bundle",
+    "description": "A bundle to build Flysystem adapters from DSN.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "require": {
+        "php": "8.0.*",
+        "symfony/config": "^4.4 || ^5.3",
+        "symfony/dependency-injection": "^4.4 || ^5.3",
+        "symfony/http-kernel": "^4.4 || ^5.3",
+        "webalternatif/flysystem-dsn": "^0.1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "infection/infection": "^0.24.0",
+        "league/flysystem-aws-s3-v3": "^2.1",
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.9",
+        "webalternatif/flysystem-openstack-swift": "^0.2.0"
+    },
+    "scripts": {
+        "cs-check": "php-cs-fixer fix --dry-run",
+        "cs-fix": "php-cs-fixer fix",
+        "infection": "infection --threads=$(nproc)",
+        "phpunit": "phpunit",
+        "psalm": "psalm --threads=$(nproc) --no-cache",
+        "test": ["@psalm", "@phpunit", "@infection", "@cs-check"]
+    },
+    "autoload": {
+        "psr-4": {
+            "Webf\\Flysystem\\DsnBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Webf\\Flysystem\\DsnBundle\\": "tests"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "archive": {
+        "exclude": [
+            "/.github/",
+            "/tests/",
+            "/.php-cs-fixer.dist.php",
+            "/infection.json.dist",
+            "/phpunit.xml.dist",
+            "/psalm.xml"
+        ]
+    }
+}
