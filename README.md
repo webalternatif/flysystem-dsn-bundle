@@ -1,4 +1,4 @@
-# Flysystem DSN Bundle
+# Flysystem DSN bundle
 
 [![Source code](https://img.shields.io/badge/source-GitHub-blue)](https://github.com/webalternatif/flysystem-dsn-bundle)
 [![Software license](https://img.shields.io/github/license/webalternatif/flysystem-dsn-bundle)](https://github.com/webalternatif/flysystem-dsn-bundle/blob/master/LICENSE)
@@ -76,7 +76,29 @@ have to tag your service with `webf_flysystem_dsn.adapter_factory` (also
 available in PHP with
 `Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension::ADAPTER_FACTORY_TAG_NAME`).
 
+## Tests
+
+To run all tests, execute the command:
+
+```bash
+$ composer test
+```
+
+This will run [Psalm][5], [PHPUnit][6], [Infection][7] and a [PHP-CS-Fixer][8]
+check, but you can run them individually like this:
+
+```bash
+$ composer psalm
+$ composer phpunit
+$ composer infection
+$ composer cs-check
+```
+
 [1]: https://github.com/webalternatif/flysystem-dsn
 [2]: https://getcomposer.org/doc/00-intro.md
 [3]: https://github.com/webalternatif/flysystem-dsn#adapters
 [4]: https://symfony.com/doc/current/service_container.html#the-autoconfigure-option
+[5]: https://psalm.dev
+[6]: https://phpunit.de
+[7]: https://infection.github.io
+[8]: https://cs.symfony.com/
