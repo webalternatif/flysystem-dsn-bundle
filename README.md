@@ -62,8 +62,10 @@ webf_flysystem_dsn:
         adapter2: '%env(STORAGE2_DSN)%' # service: webf_flysystem_dsn.adapter.adapter2
 ```
 
-See [available adapters][3] section of `webalternatif/flysystem-dsn` to know
-what DSN you can use.
+In addition to [available adapters][3] from `webalternatif/flysystem-dsn`, this
+bundle provides a Symfony-specific DSN `service://service_id` to which you must
+provide an identifier that references an external service (that must be a
+Flysystem adapter).
 
 ### Using your own DSN
 

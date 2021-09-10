@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Webf\Flysystem\DsnBundle\DependencyInjection;
 
 use League\Flysystem\FilesystemAdapter;
+use Nyholm\Dsn\Configuration\Dsn;
+use Symfony\Component\DependencyInjection\Argument\ServiceLocatorArgument;
 use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -14,6 +16,7 @@ use Webf\Flysystem\Dsn\AwsS3AdapterFactory;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactory;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
 use Webf\Flysystem\Dsn\OpenStackSwiftAdapterFactory;
+use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
 
 /**
  * @psalm-type _Config=array{
@@ -28,25 +31,33 @@ use Webf\Flysystem\Dsn\OpenStackSwiftAdapterFactory;
 class WebfFlysystemDsnExtension extends Extension
 {
     private const PREFIX = 'webf_flysystem_dsn';
+    public const CONFIG_PARAMETER_NAME = self::PREFIX . '.config';
 
     public const ADAPTER_SERVICE_ID_PREFIX = self::PREFIX . '.adapter';
 
     public const ADAPTER_FACTORY_SERVICE_ID = self::PREFIX . '.adapter_factory';
-    public const AWS_S3_ADAPTER_FACTORY_SERVICE_ID = self::PREFIX . '.adapter_factory.s3';
-    public const OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID = self::PREFIX . '.adapter_factory.swift';
+    public const AWS_S3_ADAPTER_FACTORY_SERVICE_ID =
+        self::PREFIX . '.adapter_factory.s3';
+    public const OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID =
+        self::PREFIX . '.adapter_factory.swift';
+    public const SERVICE_ADAPTER_FACTORY_SERVICE_ID =
+        self::PREFIX . '.adapter_factory.service';
 
     public const ADAPTER_FACTORY_TAG_NAME = self::PREFIX . '.adapter_factory';
+    public const ADAPTER_SERVICE_TAG_NAME = self::PREFIX . '.adapter_service';
 
     public function load(array $configs, ContainerBuilder $container): void
     {
         /** @var _Config $config */
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $this->registerServices($container);
+        $container->setParameter(self::CONFIG_PARAMETER_NAME, $config);
+
+        $this->registerFactories($container);
         $this->registerAdapters($container, $config);
     }
 
-    private function registerServices(ContainerBuilder $container): void
+    private function registerFactories(ContainerBuilder $container): void
     {
         $container->setDefinition(
             self::ADAPTER_FACTORY_SERVICE_ID,
@@ -68,8 +79,23 @@ class WebfFlysystemDsnExtension extends Extension
                 ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
         );
 
+        $container->setDefinition(
+            self::SERVICE_ADAPTER_FACTORY_SERVICE_ID,
+            (new Definition(ServiceAdapterFactory::class))
+                ->setArguments([
+                    new ServiceLocatorArgument(
+                        new TaggedIteratorArgument(self::ADAPTER_SERVICE_TAG_NAME, null, null, true)
+                    ),
+                ])
+                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+        );
+
         $container->registerForAutoconfiguration(FlysystemAdapterFactoryInterface::class)
             ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+        ;
+
+        $container->registerForAutoconfiguration(FilesystemAdapter::class)
+            ->addTag(self::ADAPTER_SERVICE_TAG_NAME)
         ;
     }
 
