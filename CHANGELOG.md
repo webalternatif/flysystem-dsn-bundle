@@ -1,4 +1,4 @@
-## v0.2.0 (unreleased)
+## v0.2.0 (September 14, 2021)
 
 ### 💥 Breaking changes
 
