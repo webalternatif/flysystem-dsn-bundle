@@ -65,7 +65,9 @@ webf_flysystem_dsn:
 In addition to [available adapters][3] from `webalternatif/flysystem-dsn`, this
 bundle provides a Symfony-specific DSN `service://service_id` to which you must
 provide an identifier that references an external service (that must be a
-Flysystem adapter).
+Flysystem adapter). It could be useful if you already have adapter services,
+and you want to inject them into a composed adapter like `failover`:
+`failover(service://external_service_id ...)`.
 
 ### Using your own DSN
 

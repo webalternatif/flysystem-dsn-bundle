@@ -13,10 +13,12 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Reference;
 use Webf\Flysystem\Dsn\AwsS3AdapterFactory;
+use Webf\Flysystem\Dsn\FailoverAdapterFactory;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactory;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
 use Webf\Flysystem\Dsn\OpenStackSwiftAdapterFactory;
 use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
+use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
 
 /**
  * @psalm-type _Config=array{
@@ -38,13 +40,16 @@ class WebfFlysystemDsnExtension extends Extension
     public const ADAPTER_FACTORY_SERVICE_ID = self::PREFIX . '.adapter_factory';
     public const AWS_S3_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.s3';
+    public const FAILOVER_ADAPTER_FACTORY_SERVICE_ID =
+        self::PREFIX . '.adapter_factory.failover';
     public const OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.swift';
     public const SERVICE_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.service';
 
+    public const ADAPTER_TAG_NAME = self::PREFIX . '.adapter'; // Tag for every adapter configured by this bundle
     public const ADAPTER_FACTORY_TAG_NAME = self::PREFIX . '.adapter_factory';
-    public const ADAPTER_SERVICE_TAG_NAME = self::PREFIX . '.adapter_service';
+    public const ADAPTER_SERVICE_TAG_NAME = self::PREFIX . '.adapter_service'; // Tag for adapters referenced as "service://<service_id>" in DSNs
 
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -70,6 +75,16 @@ class WebfFlysystemDsnExtension extends Extension
         $container->setDefinition(
             self::AWS_S3_ADAPTER_FACTORY_SERVICE_ID,
             (new Definition(AwsS3AdapterFactory::class))
+                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+        );
+
+        $container->setDefinition(
+            self::FAILOVER_ADAPTER_FACTORY_SERVICE_ID,
+            (new Definition(FailoverAdapterFactory::class))
+                ->setArguments([
+                    new Reference(self::ADAPTER_FACTORY_SERVICE_ID),
+                    new Reference(WebfFlysystemFailoverExtension::MESSAGE_REPOSITORY_SERVICE_ID),
+                ])
                 ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
         );
 
@@ -115,6 +130,7 @@ class WebfFlysystemDsnExtension extends Extension
                         'createAdapter',
                     ])
                     ->setArguments([$adapter['dsn']])
+                    ->addTag(self::ADAPTER_TAG_NAME)
             );
         }
     }

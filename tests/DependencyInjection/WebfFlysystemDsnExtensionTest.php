@@ -22,6 +22,7 @@ class WebfFlysystemDsnExtensionTest extends TestCase
         $this->assertServicesAreInstanciable([
             WebfFlysystemDsnExtension::ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::AWS_S3_ADAPTER_FACTORY_SERVICE_ID,
+            WebfFlysystemDsnExtension::FAILOVER_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::SERVICE_ADAPTER_FACTORY_SERVICE_ID,
         ]);

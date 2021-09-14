@@ -25,6 +25,7 @@
         "league/flysystem-aws-s3-v3": "^2.1",
         "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^4.9",
+        "webalternatif/flysystem-failover-bundle": "^0.2.0",
         "webalternatif/flysystem-openstack-swift": "^0.2.0"
     },
     "scripts": {

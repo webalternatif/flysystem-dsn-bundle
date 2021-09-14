@@ -17,6 +17,8 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 use Webf\Flysystem\DsnBundle\DependencyInjection\Configuration;
 use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 use Webf\Flysystem\DsnBundle\WebfFlysystemDsnBundle;
+use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
+use Webf\FlysystemFailoverBundle\MessageRepository\MessageRepositoryInterface;
 
 /**
  * @internal
@@ -46,6 +48,11 @@ class TestCase extends BaseTestCase
 
         $bundle = new WebfFlysystemDsnBundle();
         $bundle->build($container);
+
+        $container->set(
+            WebfFlysystemFailoverExtension::MESSAGE_REPOSITORY_SERVICE_ID,
+            $this->createMock(MessageRepositoryInterface::class)
+        );
 
         return $container;
     }
