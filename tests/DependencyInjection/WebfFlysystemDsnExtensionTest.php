@@ -28,6 +28,19 @@ class WebfFlysystemDsnExtensionTest extends TestCase
         ]);
     }
 
+    public function test_adapter_factory_interface_is_aliased(): void
+    {
+        $serviceLocator = $this->createServiceLocator([
+            WebfFlysystemDsnExtension::ADAPTER_FACTORY_SERVICE_ID,
+            FlysystemAdapterFactoryInterface::class,
+        ]);
+
+        $this->assertSame(
+            $serviceLocator->get(WebfFlysystemDsnExtension::ADAPTER_FACTORY_SERVICE_ID),
+            $serviceLocator->get(FlysystemAdapterFactoryInterface::class),
+        );
+    }
+
     public function test_interfaces_are_registered_for_autoconfiguration()
     {
         $container = $this->createCompiledContainer();

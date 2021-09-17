@@ -1,3 +1,9 @@
+## v0.2.1 (unreleased)
+
+### ✨ New features
+
+  * Register `FlysystemAdapterFactoryInterface` as alias of service `webf_flysystem_dsn.adapter_factory`
+
 ## v0.2.0 (September 14, 2021)
 
 ### 💥 Breaking changes

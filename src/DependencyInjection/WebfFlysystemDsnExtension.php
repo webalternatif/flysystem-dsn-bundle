@@ -72,6 +72,11 @@ class WebfFlysystemDsnExtension extends Extension
                 ])
         );
 
+        $container->setAlias(
+            FlysystemAdapterFactoryInterface::class,
+            self::ADAPTER_FACTORY_SERVICE_ID
+        );
+
         $container->setDefinition(
             self::AWS_S3_ADAPTER_FACTORY_SERVICE_ID,
             (new Definition(AwsS3AdapterFactory::class))
