@@ -1,4 +1,8 @@
-## v0.2.1 (unreleased)
+## v0.3.0 (unreleased)
+
+### 💥 Breaking changes
+
+* Bump `webalternatif/flysystem-dsn` version to `^0.3.0`
 
 ### ✨ New features
 
