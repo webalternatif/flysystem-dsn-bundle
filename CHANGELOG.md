@@ -2,6 +2,7 @@
 
 ### ✨ New features
 
+* Register `InMemoryAdapterFactory` as service
 * Register `LocalAdapterFactory` as service
 
 ## v0.3.0 (October 8, 2021)
