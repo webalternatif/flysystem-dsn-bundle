@@ -16,6 +16,7 @@ use Webf\Flysystem\Dsn\AwsS3AdapterFactory;
 use Webf\Flysystem\Dsn\FailoverAdapterFactory;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactory;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
+use Webf\Flysystem\Dsn\LocalAdapterFactory;
 use Webf\Flysystem\Dsn\OpenStackSwiftAdapterFactory;
 use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
 use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
@@ -42,6 +43,8 @@ class WebfFlysystemDsnExtension extends Extension
         self::PREFIX . '.adapter_factory.s3';
     public const FAILOVER_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.failover';
+    public const LOCAL_ADAPTER_FACTORY_SERVICE_ID =
+        self::PREFIX . '.adapter_factory.local';
     public const OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.swift';
     public const SERVICE_ADAPTER_FACTORY_SERVICE_ID =
@@ -90,6 +93,12 @@ class WebfFlysystemDsnExtension extends Extension
                     new Reference(self::ADAPTER_FACTORY_SERVICE_ID),
                     new Reference(WebfFlysystemFailoverExtension::MESSAGE_REPOSITORY_SERVICE_ID),
                 ])
+                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+        );
+
+        $container->setDefinition(
+            self::LOCAL_ADAPTER_FACTORY_SERVICE_ID,
+            (new Definition(LocalAdapterFactory::class))
                 ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
         );
 
