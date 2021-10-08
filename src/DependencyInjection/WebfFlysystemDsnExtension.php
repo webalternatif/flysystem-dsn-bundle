@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Webf\Flysystem\DsnBundle\DependencyInjection;
 
+use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use League\Flysystem\FilesystemAdapter;
-use Nyholm\Dsn\Configuration\Dsn;
+use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use Symfony\Component\DependencyInjection\Argument\ServiceLocatorArgument;
 use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -20,7 +22,9 @@ use Webf\Flysystem\Dsn\InMemoryAdapterFactory;
 use Webf\Flysystem\Dsn\LocalAdapterFactory;
 use Webf\Flysystem\Dsn\OpenStackSwiftAdapterFactory;
 use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
+use Webf\Flysystem\OpenStackSwift\OpenStackSwiftAdapter;
 use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
+use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
 
 /**
  * @psalm-type _Config=array{
@@ -83,39 +87,49 @@ class WebfFlysystemDsnExtension extends Extension
             self::ADAPTER_FACTORY_SERVICE_ID
         );
 
-        $container->setDefinition(
-            self::AWS_S3_ADAPTER_FACTORY_SERVICE_ID,
-            (new Definition(AwsS3AdapterFactory::class))
-                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
-        );
+        if (class_exists(AwsS3V3Adapter::class)) {
+            $container->setDefinition(
+                self::AWS_S3_ADAPTER_FACTORY_SERVICE_ID,
+                (new Definition(AwsS3AdapterFactory::class))
+                    ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+            );
+        }
 
-        $container->setDefinition(
-            self::FAILOVER_ADAPTER_FACTORY_SERVICE_ID,
-            (new Definition(FailoverAdapterFactory::class))
-                ->setArguments([
-                    new Reference(self::ADAPTER_FACTORY_SERVICE_ID),
-                    new Reference(WebfFlysystemFailoverExtension::MESSAGE_REPOSITORY_SERVICE_ID),
-                ])
-                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
-        );
+        if (class_exists(FailoverAdapter::class)) {
+            $container->setDefinition(
+                self::FAILOVER_ADAPTER_FACTORY_SERVICE_ID,
+                (new Definition(FailoverAdapterFactory::class))
+                    ->setArguments([
+                        new Reference(self::ADAPTER_FACTORY_SERVICE_ID),
+                        new Reference(WebfFlysystemFailoverExtension::MESSAGE_REPOSITORY_SERVICE_ID),
+                    ])
+                    ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+            );
+        }
 
-        $container->setDefinition(
-            self::IN_MEMORY_ADAPTER_FACTORY_SERVICE_ID,
-            (new Definition(InMemoryAdapterFactory::class))
-                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
-        );
+        if (class_exists(InMemoryFilesystemAdapter::class)) {
+            $container->setDefinition(
+                self::IN_MEMORY_ADAPTER_FACTORY_SERVICE_ID,
+                (new Definition(InMemoryAdapterFactory::class))
+                    ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+            );
+        }
 
-        $container->setDefinition(
-            self::LOCAL_ADAPTER_FACTORY_SERVICE_ID,
-            (new Definition(LocalAdapterFactory::class))
-                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
-        );
+        if (class_exists(LocalFilesystemAdapter::class)) {
+            $container->setDefinition(
+                self::LOCAL_ADAPTER_FACTORY_SERVICE_ID,
+                (new Definition(LocalAdapterFactory::class))
+                    ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+            );
+        }
 
-        $container->setDefinition(
-            self::OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID,
-            (new Definition(OpenStackSwiftAdapterFactory::class))
-                ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
-        );
+        if (class_exists(OpenStackSwiftAdapter::class)) {
+            $container->setDefinition(
+                self::OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID,
+                (new Definition(OpenStackSwiftAdapterFactory::class))
+                    ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+            );
+        }
 
         $container->setDefinition(
             self::SERVICE_ADAPTER_FACTORY_SERVICE_ID,

@@ -1,3 +1,9 @@
+## v0.3.2 (unreleased)
+
+### 🐛 Bug fixes
+
+* Do not register adapter factory services if underlying adapter classes does not exist
+
 ## v0.3.1 (October 8, 2021)
 
 ### ✨ New features
