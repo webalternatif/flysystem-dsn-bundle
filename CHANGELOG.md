@@ -1,3 +1,9 @@
+## v0.3.3 (unreleased)
+
+### ✨ New features
+
+* Allow `failover` DSN to be nested in other DSN functions
+
 ## v0.3.2 (October 8, 2021)
 
 ### 🐛 Bug fixes

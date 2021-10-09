@@ -69,13 +69,28 @@ Flysystem adapter). It could be useful if you already have adapter services,
 and you want to inject them into a composed adapter like `failover`:
 `failover(service://external_service_id ...)`.
 
+### Integration with [`webalternatif/flysystem-failover-bundle`][4]
+
+If [`webalternatif/flysystem-failover-bundle`][4] is installed, the
+[`failover`][5] DSN function becomes available and all configured failover
+adapters are registered so that they can be used in `webf:flysystem-failover:*`
+Symfony commands.
+
+#### Using `failover` DSN function nested in others
+
+In order to use the `failover` DSN function as parameter of other DSN functions,
+adapters created by the corresponding factories must implement
+`CompositeFilesystemAdapter` from [`webalternatif/flysystem-composite`][6].
+Without that, the bundle wouldn't be able to register them, and they won't be
+usable in `webf:flysystem-failover:*` Symfony commands.
+
 ### Using your own DSN
 
 If you want to use your own DSN to build your own Flysystem adapters, you can
 create an adapter factory service that implement
 `Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface`.
 
-To register the factory, either you have [autoconfiguration][4] enabled, or you
+To register the factory, either you have [autoconfiguration][7] enabled, or you
 have to tag your service with `webf_flysystem_dsn.adapter_factory` (also
 available in PHP with
 `Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension::ADAPTER_FACTORY_TAG_NAME`).
@@ -88,7 +103,7 @@ To run all tests, execute the command:
 $ composer test
 ```
 
-This will run [Psalm][5], [PHPUnit][6], [Infection][7] and a [PHP-CS-Fixer][8]
+This will run [Psalm][8], [PHPUnit][9], [Infection][10] and a [PHP-CS-Fixer][11]
 check, but you can run them individually like this:
 
 ```bash
@@ -101,8 +116,11 @@ $ composer cs-check
 [1]: https://github.com/webalternatif/flysystem-dsn
 [2]: https://getcomposer.org/doc/00-intro.md
 [3]: https://github.com/webalternatif/flysystem-dsn#adapters
-[4]: https://symfony.com/doc/current/service_container.html#the-autoconfigure-option
-[5]: https://psalm.dev
-[6]: https://phpunit.de
-[7]: https://infection.github.io
-[8]: https://cs.symfony.com/
+[4]: https://github.com/webalternatif/flysystem-failover-bundle
+[5]: https://github.com/webalternatif/flysystem-dsn#failover
+[6]: https://github.com/webalternatif/flysystem-composite
+[7]: https://symfony.com/doc/current/service_container.html#the-autoconfigure-option
+[8]: https://psalm.dev
+[9]: https://phpunit.de
+[10]: https://infection.github.io
+[11]: https://cs.symfony.com/
