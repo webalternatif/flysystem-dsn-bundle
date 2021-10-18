@@ -21,7 +21,7 @@ Make sure Composer is installed globally, as explained in the
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require webalternatif/flysystem-dsn-bundle
+composer require webalternatif/flysystem-dsn-bundle
 ```
 
 ### Applications that don't use Symfony Flex
@@ -32,7 +32,7 @@ Open a command console, enter your project directory and execute the following
 command to download the latest stable version of this bundle:
 
 ```console
-$ composer require webalternatif/flysystem-dsn-bundle
+composer require webalternatif/flysystem-dsn-bundle
 ```
 
 #### Step 2: Enable the Bundle
@@ -100,17 +100,17 @@ available in PHP with
 To run all tests, execute the command:
 
 ```bash
-$ composer test
+composer test
 ```
 
 This will run [Psalm][8], [PHPUnit][9], [Infection][10] and a [PHP-CS-Fixer][11]
 check, but you can run them individually like this:
 
 ```bash
-$ composer psalm
-$ composer phpunit
-$ composer infection
-$ composer cs-check
+composer psalm
+composer phpunit
+composer infection
+composer cs-check
 ```
 
 [1]: https://github.com/webalternatif/flysystem-dsn
