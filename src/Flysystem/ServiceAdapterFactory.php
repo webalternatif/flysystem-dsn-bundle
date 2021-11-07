@@ -38,7 +38,7 @@ class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
         $serviceId = self::getServiceId($dsn);
         try {
             $adapter = $this->serviceLocator->get($serviceId);
-        } catch (\Exception) {
+        } catch (\Throwable) {
             throw UnableToCreateAdapterException::create(sprintf('Service "%s" must be tagged with "%s"', $serviceId, WebfFlysystemDsnExtension::ADAPTER_SERVICE_TAG_NAME), $dsnString);
         }
 
