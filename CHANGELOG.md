@@ -4,6 +4,7 @@
 
 * Allow `failover` DSN to be nested in other DSN functions
 * Bump `webalternatif/flysystem-dsn` version to `^0.3.1`
+* Register `SftpAdapterFactory` as service
 
 ## v0.3.2 (October 8, 2021)
 

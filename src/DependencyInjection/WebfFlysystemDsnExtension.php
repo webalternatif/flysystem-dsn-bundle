@@ -8,6 +8,7 @@ use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use League\Flysystem\FilesystemAdapter;
 use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
 use League\Flysystem\Local\LocalFilesystemAdapter;
+use League\Flysystem\PhpseclibV2\SftpAdapter;
 use Symfony\Component\DependencyInjection\Argument\ServiceLocatorArgument;
 use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -21,6 +22,7 @@ use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
 use Webf\Flysystem\Dsn\InMemoryAdapterFactory;
 use Webf\Flysystem\Dsn\LocalAdapterFactory;
 use Webf\Flysystem\Dsn\OpenStackSwiftAdapterFactory;
+use Webf\Flysystem\Dsn\SftpAdapterFactory;
 use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
 use Webf\Flysystem\OpenStackSwift\OpenStackSwiftAdapter;
 use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
@@ -54,6 +56,8 @@ class WebfFlysystemDsnExtension extends Extension
         self::PREFIX . '.adapter_factory.local';
     public const OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.swift';
+    public const SFTP_ADAPTER_FACTORY_SERVICE_ID =
+        self::PREFIX . '.adapter_factory.sftp';
     public const SERVICE_ADAPTER_FACTORY_SERVICE_ID =
         self::PREFIX . '.adapter_factory.service';
 
@@ -127,6 +131,14 @@ class WebfFlysystemDsnExtension extends Extension
             $container->setDefinition(
                 self::OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID,
                 (new Definition(OpenStackSwiftAdapterFactory::class))
+                    ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
+            );
+        }
+
+        if (class_exists(SftpAdapter::class)) {
+            $container->setDefinition(
+                self::SFTP_ADAPTER_FACTORY_SERVICE_ID,
+                (new Definition(SftpAdapterFactory::class))
                     ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
             );
         }

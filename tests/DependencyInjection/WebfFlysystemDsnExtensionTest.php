@@ -26,6 +26,7 @@ class WebfFlysystemDsnExtensionTest extends TestCase
             WebfFlysystemDsnExtension::IN_MEMORY_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::LOCAL_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID,
+            WebfFlysystemDsnExtension::SFTP_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::SERVICE_ADAPTER_FACTORY_SERVICE_ID,
         ]);
     }
