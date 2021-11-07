@@ -23,6 +23,7 @@ class WebfFlysystemDsnExtensionTest extends TestCase
             WebfFlysystemDsnExtension::ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::AWS_S3_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::FAILOVER_ADAPTER_FACTORY_SERVICE_ID,
+            WebfFlysystemDsnExtension::FTP_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::IN_MEMORY_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::LOCAL_ADAPTER_FACTORY_SERVICE_ID,
             WebfFlysystemDsnExtension::OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID,
