@@ -1,3 +1,9 @@
+## v0.3.4 (unreleased)
+
+### 🐛 Bug fixes
+
+* Fix container compilation when FlysystemFailoverBundle is not installed
+
 ## v0.3.3 (November 7, 2021)
 
 ### ✨ New features

@@ -16,6 +16,10 @@ class ReplaceFailoverAdaptersLocatorCompilerPass implements CompilerPassInterfac
 {
     public function process(ContainerBuilder $container): void
     {
+        if (!class_exists(WebfFlysystemFailoverExtension::class)) {
+            return;
+        }
+
         $serviceId = WebfFlysystemFailoverExtension::FAILOVER_ADAPTERS_LOCATOR_SERVICE_ID;
         $tagName = WebfFlysystemDsnExtension::ADAPTER_TAG_NAME;
 
