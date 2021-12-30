@@ -1,3 +1,9 @@
+## v0.3.5 (unreleased)
+
+### ✨ New features
+
+* Add support of PHP 8.1
+
 ## v0.3.4 (November 19, 2021)
 
 ### 🐛 Bug fixes
