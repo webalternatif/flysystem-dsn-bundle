@@ -22,4 +22,12 @@
         <class name="Symfony\Component\DependencyInjection\Exception\OutOfBoundsException" />
         <class name="Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException" />
     </ignoreExceptions>
+
+    <issueHandlers>
+        <UndefinedDocblockClass>
+            <errorLevel type="suppress">
+                <referencedClass name="UnitEnum" />
+            </errorLevel>
+        </UndefinedDocblockClass>
+    </issueHandlers>
 </psalm>
