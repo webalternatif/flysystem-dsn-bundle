@@ -17,20 +17,20 @@
         "symfony/config": "^4.4 || ^5.3",
         "symfony/dependency-injection": "^4.4 || ^5.3",
         "symfony/http-kernel": "^4.4 || ^5.3",
-        "webalternatif/flysystem-composite": "^0.1.0",
-        "webalternatif/flysystem-dsn": "^0.3.1"
+        "webalternatif/flysystem-composite": "^0.2.0",
+        "webalternatif/flysystem-dsn": "^0.4.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.1",
         "infection/infection": "^0.24.0",
-        "league/flysystem-aws-s3-v3": "^2.1",
-        "league/flysystem-ftp": "^2.3",
-        "league/flysystem-memory": "^2.0",
-        "league/flysystem-sftp": "^2.2",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "league/flysystem-ftp": "^3.0",
+        "league/flysystem-memory": "^3.0",
+        "league/flysystem-sftp": "^3.0",
         "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^4.9",
-        "webalternatif/flysystem-failover-bundle": "^0.2.0 || ^0.3.0",
-        "webalternatif/flysystem-openstack-swift": "^0.2.0"
+        "webalternatif/flysystem-failover-bundle": "^0.4.0",
+        "webalternatif/flysystem-openstack-swift": "^0.3.0"
     },
     "scripts": {
         "cs-check": "php-cs-fixer fix --dry-run",

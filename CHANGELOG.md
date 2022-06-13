@@ -1,3 +1,9 @@
+## v0.4.0 (unreleased)
+
+### 💥 Breaking changes
+
+* Bump dependencies
+
 ## v0.3.5 (December 30, 2021)
 
 ### ✨ New features
