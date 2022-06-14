@@ -1,8 +1,8 @@
-## v0.4.1 (unreleased)
+## v0.4.1 (June 14, 2022)
 
 ### ✨ New features
 
-* Allow Symfony components `^6.0`
+* Allow Symfony components `^6.0` ([a0b7f47](https://github.com/webalternatif/flysystem-dsn-bundle/commit/a0b7f47dd67e34bfe0d5c84e7259c0ae8b203ca2))
 
 ## v0.4.0 (June 13, 2022)
 
