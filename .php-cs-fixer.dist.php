@@ -2,7 +2,7 @@
 
 $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
-    ->exclude(['var', 'vendor'])
+    ->exclude(['bin', 'var', 'vendor'])
 ;
 
 return (new PhpCsFixer\Config())

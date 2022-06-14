@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\Argument\IteratorArgument;
 use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 use Webf\Flysystem\DsnBundle\Flysystem\FailoverAdaptersLocator;
 use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
@@ -29,6 +30,7 @@ class ReplaceFailoverAdaptersLocatorCompilerPass implements CompilerPassInterfac
             /** @var IteratorArgument $failoverAdapters */
             $failoverAdapters = $definition->getArgument(0);
 
+            /** @var Reference $reference */
             foreach ($failoverAdapters->getValues() as $reference) {
                 $container
                     ->getDefinition($reference->__toString())
