@@ -9,7 +9,7 @@ use League\Flysystem\FilesystemAdapter;
 use League\Flysystem\Ftp\FtpAdapter;
 use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
 use League\Flysystem\Local\LocalFilesystemAdapter;
-use League\Flysystem\PhpseclibV2\SftpAdapter;
+use League\Flysystem\PhpseclibV3\SftpAdapter;
 use Symfony\Component\DependencyInjection\Argument\ServiceLocatorArgument;
 use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

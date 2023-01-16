@@ -18,7 +18,7 @@
         "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
         "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
         "webalternatif/flysystem-composite": "^0.2.0",
-        "webalternatif/flysystem-dsn": "^0.4.0"
+        "webalternatif/flysystem-dsn": "^0.5.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.1",
@@ -26,7 +26,7 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "league/flysystem-ftp": "^3.0",
         "league/flysystem-memory": "^3.0",
-        "league/flysystem-sftp": "^3.0",
+        "league/flysystem-sftp-v3": "^3.0",
         "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^4.9",
         "webalternatif/flysystem-failover-bundle": "^0.4.0",
@@ -52,7 +52,10 @@
     },
     "config": {
         "bin-dir": "bin",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "infection/extension-installer": false
+        }
     },
     "archive": {
         "exclude": [
