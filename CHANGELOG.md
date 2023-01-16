@@ -1,9 +1,9 @@
-## v0.5.0 (unreleased)
+## v0.5.0 (January 16, 2023)
 
 ### 💥 Breaking changes
 
-* Replace league/flysystem-sftp by league/flysystem-sftp-v3
-* Bump `webalternatif/flysystem-dsn` version to `^0.5.0`
+* Replace league/flysystem-sftp by league/flysystem-sftp-v3 ([#2](https://github.com/webalternatif/flysystem-dsn-bundle/pull/2))
+* Bump `webalternatif/flysystem-dsn` version to `^0.5.0` ([#2](https://github.com/webalternatif/flysystem-dsn-bundle/pull/2))
 
 ## v0.4.1 (June 14, 2022)
 
