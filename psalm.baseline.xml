@@ -5,4 +5,9 @@
       <code>Reference</code>
     </UnnecessaryVarAnnotation>
   </file>
+  <file src="src/DependencyInjection/CompilerPass/TagAdapterServicesCompilerPass.php">
+    <MissingThrowsDocblock occurrences="1">
+      <code>getParameter</code>
+    </MissingThrowsDocblock>
+  </file>
 </files>
