@@ -1,6 +1,6 @@
 {
     "name": "webalternatif/flysystem-dsn-bundle",
-    "description": "A bundle to build Flysystem adapters from DSN.",
+    "description": "A bundle to build Flysystem adapters from DSN (Data Source Name).",
     "type": "symfony-bundle",
     "keywords": ["flysystem", "dsn", "adapter", "bundle", "filesystem", "storage"],
     "license": "MIT",
