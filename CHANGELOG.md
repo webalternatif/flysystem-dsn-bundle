@@ -3,6 +3,7 @@
 ### ✨ New features
 
 * Add compatibility with `psr/container:^2.0`
+* Add support of PHP 8.2
 
 ## v0.5.0 (January 16, 2023)
 
