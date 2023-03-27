@@ -1,3 +1,9 @@
+## v0.5.1 (unreleased)
+
+### ✨ New features
+
+* Add compatibility with `psr/container:^2.0`
+
 ## v0.5.0 (January 16, 2023)
 
 ### 💥 Breaking changes
