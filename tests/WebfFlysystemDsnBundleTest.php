@@ -11,6 +11,7 @@ use Webf\Flysystem\DsnBundle\WebfFlysystemDsnBundle;
 
 /**
  * @internal
+ *
  * @covers \Webf\Flysystem\DsnBundle\WebfFlysystemDsnBundle
  */
 class WebfFlysystemDsnBundleTest extends TestCase

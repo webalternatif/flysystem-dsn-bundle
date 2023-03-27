@@ -15,6 +15,7 @@ use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
 
 /**
  * @internal
+ *
  * @covers \Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory
  */
 class ServiceAdapterFactoryTest extends TestCase

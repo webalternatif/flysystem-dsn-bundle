@@ -13,6 +13,7 @@ use Webf\Flysystem\DsnBundle\Test\TestCase;
 
 /**
  * @internal
+ *
  * @covers \Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension
  */
 class WebfFlysystemDsnExtensionTest extends TestCase
