@@ -22,6 +22,7 @@ use Webf\FlysystemFailoverBundle\MessageRepository\MessageRepositoryInterface;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 class TestCase extends BaseTestCase

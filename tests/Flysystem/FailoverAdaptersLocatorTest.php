@@ -12,6 +12,7 @@ use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
 
 /**
  * @internal
+ *
  * @covers \Webf\Flysystem\DsnBundle\Flysystem\FailoverAdaptersLocator
  */
 class FailoverAdaptersLocatorTest extends TestCase

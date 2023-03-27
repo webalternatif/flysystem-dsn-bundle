@@ -10,8 +10,8 @@
   "logs": {
     "text": "var\/log\/infection.log",
     "perMutator": "php://stdout",
-    "badge": {
-      "branch": "main"
+    "stryker": {
+      "badge": "main"
     }
   },
   "tmpDir": "var/cache"

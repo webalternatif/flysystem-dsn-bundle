@@ -14,6 +14,7 @@ use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdaptersLocatorInterface;
 
 /**
  * @internal
+ *
  * @covers \Webf\Flysystem\DsnBundle\DependencyInjection\CompilerPass\ReplaceFailoverAdaptersLocatorCompilerPass
  */
 class ReplaceFailoverAdaptersLocatorCompilerPassTest extends TestCase

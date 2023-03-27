@@ -10,6 +10,7 @@ use Webf\Flysystem\DsnBundle\Test\TestCase;
 
 /**
  * @internal
+ *
  * @covers \Webf\Flysystem\DsnBundle\DependencyInjection\CompilerPass\TagAdapterServicesCompilerPass
  */
 class TagAdapterServicesCompilerPassTest extends TestCase
