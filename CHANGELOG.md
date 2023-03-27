@@ -1,9 +1,9 @@
-## v0.5.1 (unreleased)
+## v0.5.1 (March 27, 2023)
 
 ### ✨ New features
 
-* Add compatibility with `psr/container:^2.0`
-* Add support of PHP 8.2
+* Add compatibility with `psr/container:^2.0` ([#4](https://github.com/webalternatif/flysystem-dsn-bundle/pull/4))
+* Add support of PHP 8.2 ([#5](https://github.com/webalternatif/flysystem-dsn-bundle/pull/5))
 
 ## v0.5.0 (January 16, 2023)
 
