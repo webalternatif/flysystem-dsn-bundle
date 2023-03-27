@@ -43,31 +43,31 @@ use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
 class WebfFlysystemDsnExtension extends Extension
 {
     private const PREFIX = 'webf_flysystem_dsn';
-    public const CONFIG_PARAMETER_NAME = self::PREFIX . '.config';
+    public const CONFIG_PARAMETER_NAME = self::PREFIX.'.config';
 
-    public const ADAPTER_SERVICE_ID_PREFIX = self::PREFIX . '.adapter';
+    public const ADAPTER_SERVICE_ID_PREFIX = self::PREFIX.'.adapter';
 
-    public const ADAPTER_FACTORY_SERVICE_ID = self::PREFIX . '.adapter_factory';
+    public const ADAPTER_FACTORY_SERVICE_ID = self::PREFIX.'.adapter_factory';
     public const AWS_S3_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.s3';
+        self::PREFIX.'.adapter_factory.s3';
     public const FAILOVER_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.failover';
+        self::PREFIX.'.adapter_factory.failover';
     public const FTP_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.ftp';
+        self::PREFIX.'.adapter_factory.ftp';
     public const IN_MEMORY_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.in_memory';
+        self::PREFIX.'.adapter_factory.in_memory';
     public const LOCAL_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.local';
+        self::PREFIX.'.adapter_factory.local';
     public const OPENSTACK_SWIFT_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.swift';
+        self::PREFIX.'.adapter_factory.swift';
     public const SFTP_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.sftp';
+        self::PREFIX.'.adapter_factory.sftp';
     public const SERVICE_ADAPTER_FACTORY_SERVICE_ID =
-        self::PREFIX . '.adapter_factory.service';
+        self::PREFIX.'.adapter_factory.service';
 
-    public const ADAPTER_TAG_NAME = self::PREFIX . '.adapter'; // Tag for every adapter configured by this bundle
-    public const ADAPTER_FACTORY_TAG_NAME = self::PREFIX . '.adapter_factory';
-    public const ADAPTER_SERVICE_TAG_NAME = self::PREFIX . '.adapter_service'; // Tag for adapters referenced as "service://<service_id>" in DSNs
+    public const ADAPTER_TAG_NAME = self::PREFIX.'.adapter'; // Tag for every adapter configured by this bundle
+    public const ADAPTER_FACTORY_TAG_NAME = self::PREFIX.'.adapter_factory';
+    public const ADAPTER_SERVICE_TAG_NAME = self::PREFIX.'.adapter_service'; // Tag for adapters referenced as "service://<service_id>" in DSNs
 
     public function load(array $configs, ContainerBuilder $container): void
     {

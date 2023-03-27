@@ -64,6 +64,6 @@ class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
 
     public static function getServiceId(Dsn $dsn): string
     {
-        return ($dsn->getHost() ?: '') . ($dsn->getPath() ?: '');
+        return ($dsn->getHost() ?: '').($dsn->getPath() ?: '');
     }
 }

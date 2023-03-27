@@ -29,7 +29,7 @@ class WebfFlysystemDsnBundleTest extends TestCase
         );
 
         $finder = new Finder();
-        $finder->files()->in(__DIR__ . '/../src/DependencyInjection/CompilerPass');
+        $finder->files()->in(__DIR__.'/../src/DependencyInjection/CompilerPass');
 
         foreach ($finder as $file) {
             $this->assertContains(
