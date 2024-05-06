@@ -1,3 +1,9 @@
+## v0.5.2 (unreleased)
+
+### ✨ New features
+
+* Add support of PHP 8.3
+
 ## v0.5.1 (March 27, 2023)
 
 ### ✨ New features

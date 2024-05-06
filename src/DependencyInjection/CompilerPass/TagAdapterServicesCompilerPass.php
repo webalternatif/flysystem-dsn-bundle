@@ -26,7 +26,7 @@ class TagAdapterServicesCompilerPass implements CompilerPassInterface
 
         foreach ($config['adapters'] as $adapter) {
             $matches = [];
-            if (preg_match_all('#service://([a-zA-Z0-9_.-\\\\]+)#', $adapter['dsn'], $matches)) {
+            if (preg_match_all('#service://([a-zA-Z0-9_.-\\\\]+)#', $adapter['dsn'], $matches) > 0) {
                 foreach ($matches[1] as $serviceId) {
                     if ($container->hasDefinition($serviceId)) {
                         $container
