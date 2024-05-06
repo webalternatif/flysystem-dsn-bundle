@@ -43,7 +43,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run Psalm
-        run: composer psalm -- --php-version=${{ matrix.php-version }} --shepherd
+        run: composer psalm -- --php-version=${{ matrix.php-version }} ${{ matrix.php-version == '8.0' && '--ignore-baseline' }} --shepherd
 
   phpunit:
     name: Run PHPUnit
