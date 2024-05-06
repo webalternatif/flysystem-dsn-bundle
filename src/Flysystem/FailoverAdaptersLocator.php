@@ -9,6 +9,9 @@ use Webf\Flysystem\Composite\CompositeFilesystemAdapter;
 use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
 use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdaptersLocator as BaseFailoverAdaptersLocator;
 
+/**
+ * @template-extends BaseFailoverAdaptersLocator<FilesystemAdapter>
+ */
 class FailoverAdaptersLocator extends BaseFailoverAdaptersLocator
 {
     /**

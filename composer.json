@@ -28,7 +28,7 @@
         "league/flysystem-memory": "^3.0",
         "league/flysystem-sftp-v3": "^3.0",
         "phpunit/phpunit": "^9.5",
-        "vimeo/psalm": "^4.9",
+        "vimeo/psalm": "^5.24",
         "webalternatif/flysystem-failover-bundle": "^0.4.0",
         "webalternatif/flysystem-openstack-swift": "^0.3.0"
     },

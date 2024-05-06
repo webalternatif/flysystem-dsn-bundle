@@ -52,7 +52,7 @@ class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
     public function supports(string $dsn): bool
     {
         try {
-            $scheme = DsnParser::parse($dsn)->getScheme() ?: '';
+            $scheme = DsnParser::parse($dsn)->getScheme() ?? '';
         } catch (FunctionsNotAllowedException) {
             return false;
         } catch (NyholmInvalidDsnException $e) {
@@ -64,6 +64,6 @@ class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
 
     public static function getServiceId(Dsn $dsn): string
     {
-        return ($dsn->getHost() ?: '').($dsn->getPath() ?: '');
+        return ($dsn->getHost() ?? '').($dsn->getPath() ?? '');
     }
 }
