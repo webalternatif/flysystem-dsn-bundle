@@ -1,8 +1,8 @@
-## v0.5.2 (unreleased)
+## v0.5.2 (May 6, 2024)
 
 ### ✨ New features
 
-* Add support of PHP 8.3
+* Add support of PHP 8.3 ([#7](https://github.com/webalternatif/flysystem-dsn-bundle/pull/7))
 
 ## v0.5.1 (March 27, 2023)
 
