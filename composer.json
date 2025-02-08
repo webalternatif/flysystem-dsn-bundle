@@ -12,25 +12,25 @@
         }
     ],
     "require": {
-        "php": "8.0.* || 8.1.* || 8.2.* || 8.3.*",
+        "php": "8.2.* || 8.3.* || 8.4.*",
         "psr/container": "^1.1 || ^2.0",
         "symfony/config": "^4.4 || ^5.3 || ^6.0",
         "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
         "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
-        "webalternatif/flysystem-composite": "^0.2.0",
-        "webalternatif/flysystem-dsn": "^0.5.0"
+        "webalternatif/flysystem-composite": "^0.3.0",
+        "webalternatif/flysystem-dsn": "^0.6.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.15",
-        "infection/infection": "^0.26",
+        "infection/infection": "^0.29.10",
         "league/flysystem-aws-s3-v3": "^3.0",
         "league/flysystem-ftp": "^3.0",
         "league/flysystem-memory": "^3.0",
         "league/flysystem-sftp-v3": "^3.0",
         "phpunit/phpunit": "^9.5",
-        "vimeo/psalm": "^5.24",
-        "webalternatif/flysystem-failover-bundle": "^0.4.0",
-        "webalternatif/flysystem-openstack-swift": "^0.3.0"
+        "vimeo/psalm": "^6.5",
+        "webalternatif/flysystem-failover-bundle": "^0.5.1",
+        "webalternatif/flysystem-openstack-swift": "^0.4.0"
     },
     "scripts": {
         "cs-check": "php-cs-fixer fix --dry-run",
