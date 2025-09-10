@@ -1,3 +1,13 @@
+## v0.7.0 (unreleased)
+
+### 💥 Breaking changes
+
+* Make classes final
+
+### ✨ New features
+
+* Allow Symfony components `^7.0`
+
 ## v0.6.0 (February 8, 2025)
 
 ### 💥 Breaking changes

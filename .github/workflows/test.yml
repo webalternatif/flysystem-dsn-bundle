@@ -30,7 +30,7 @@ jobs:
 
       - name: Cache Composer packages
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.composer/cache
@@ -42,7 +42,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run Psalm
-        run: composer psalm -- --php-version=${{ matrix.php-version }} ${{ matrix.php-version == '8.0' && '--ignore-baseline' || '' }} --shepherd
+        run: composer psalm -- --php-version=${{ matrix.php-version }} --shepherd
 
   phpunit:
     name: Run PHPUnit
@@ -67,7 +67,7 @@ jobs:
 
       - name: Cache Composer packages
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.composer/cache
@@ -107,7 +107,7 @@ jobs:
 
       - name: Cache Composer packages
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.composer/cache

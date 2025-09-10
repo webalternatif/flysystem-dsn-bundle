@@ -12,7 +12,7 @@ use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdaptersLocator as BaseFailov
 /**
  * @template-extends BaseFailoverAdaptersLocator<FilesystemAdapter>
  */
-class FailoverAdaptersLocator extends BaseFailoverAdaptersLocator
+final class FailoverAdaptersLocator extends BaseFailoverAdaptersLocator
 {
     /**
      * @param iterable<FilesystemAdapter> $adapters

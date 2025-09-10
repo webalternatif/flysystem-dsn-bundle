@@ -34,7 +34,7 @@ class WebfFlysystemDsnBundleTest extends TestCase
         foreach ($finder as $file) {
             $this->assertContains(
                 sprintf(
-                    'Webf\\Flysystem\\DsnBundle\\DependencyInjection\\CompilerPass\\%s',
+                    'Webf\Flysystem\DsnBundle\DependencyInjection\CompilerPass\%s',
                     $file->getFilenameWithoutExtension()
                 ),
                 $compilerPasses,

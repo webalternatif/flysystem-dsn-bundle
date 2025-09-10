@@ -9,8 +9,9 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Webf\Flysystem\DsnBundle\DependencyInjection\CompilerPass\ReplaceFailoverAdaptersLocatorCompilerPass;
 use Webf\Flysystem\DsnBundle\DependencyInjection\CompilerPass\TagAdapterServicesCompilerPass;
 
-class WebfFlysystemDsnBundle extends Bundle
+final class WebfFlysystemDsnBundle extends Bundle
 {
+    #[\Override]
     public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new ReplaceFailoverAdaptersLocatorCompilerPass());
