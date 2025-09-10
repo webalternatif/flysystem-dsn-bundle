@@ -1,3 +1,9 @@
+## v0.6.1 (unreleased)
+
+### ✨ New features
+
+* Allow Symfony components `^7.0`
+
 ## v0.6.0 (February 8, 2025)
 
 ### 💥 Breaking changes

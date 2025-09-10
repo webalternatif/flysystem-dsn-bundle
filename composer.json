@@ -14,9 +14,9 @@
     "require": {
         "php": "8.2.* || 8.3.* || 8.4.*",
         "psr/container": "^1.1 || ^2.0",
-        "symfony/config": "^4.4 || ^5.3 || ^6.0",
-        "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
-        "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
+        "symfony/config": "^4.4 || ^5.3 || ^6.0 || ^7.0",
+        "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0 || ^7.0",
+        "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0 || ^7.0",
         "webalternatif/flysystem-composite": "^0.3.0",
         "webalternatif/flysystem-dsn": "^0.6.0"
     },
