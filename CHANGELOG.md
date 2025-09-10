@@ -1,12 +1,12 @@
-## v0.7.0 (unreleased)
+## v0.7.0 (September 10, 2025)
 
 ### 💥 Breaking changes
 
-* Make classes final
+* Make classes final ([#9](https://github.com/webalternatif/flysystem-dsn-bundle/pull/9))
 
 ### ✨ New features
 
-* Allow Symfony components `^7.0`
+* Allow Symfony components `^7.0` ([#9](https://github.com/webalternatif/flysystem-dsn-bundle/pull/9))
 
 ## v0.6.0 (February 8, 2025)
 
