@@ -181,7 +181,7 @@ final class WebfFlysystemDsnExtension extends Extension
      */
     private function registerAdapters(
         ContainerBuilder $container,
-        array $config
+        array $config,
     ): void {
         foreach ($config['adapters'] as $name => $adapter) {
             $container->setDefinition(

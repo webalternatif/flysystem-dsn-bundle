@@ -68,7 +68,7 @@ class TestCase extends BaseTestCase
 
     protected function createServiceLocator(
         array $ids,
-        ?ContainerBuilder $container = null
+        ?ContainerBuilder $container = null,
     ): ServiceLocator {
         if (null === $container) {
             $container = $this->createContainer();
@@ -109,7 +109,7 @@ class TestCase extends BaseTestCase
      */
     protected function assertServicesAreInstanciable(
         array $ids,
-        ?ContainerBuilder $container = null
+        ?ContainerBuilder $container = null,
     ): void {
         if (null === $container) {
             $container = $this->createContainer();
@@ -133,7 +133,7 @@ class TestCase extends BaseTestCase
 
     protected function assertServiceIsInstanciable(
         string $id,
-        ?ContainerBuilder $container = null
+        ?ContainerBuilder $container = null,
     ): void {
         $this->assertServicesAreInstanciable([$id], $container);
     }
