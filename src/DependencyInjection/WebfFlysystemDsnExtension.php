@@ -40,7 +40,7 @@ use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
  *     >
  * }
  */
-class WebfFlysystemDsnExtension extends Extension
+final class WebfFlysystemDsnExtension extends Extension
 {
     private const PREFIX = 'webf_flysystem_dsn';
     public const CONFIG_PARAMETER_NAME = self::PREFIX.'.config';
@@ -69,6 +69,7 @@ class WebfFlysystemDsnExtension extends Extension
     public const ADAPTER_FACTORY_TAG_NAME = self::PREFIX.'.adapter_factory';
     public const ADAPTER_SERVICE_TAG_NAME = self::PREFIX.'.adapter_service'; // Tag for adapters referenced as "service://<service_id>" in DSNs
 
+    #[\Override]
     public function load(array $configs, ContainerBuilder $container): void
     {
         /** @var _Config $config */

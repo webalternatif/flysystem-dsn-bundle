@@ -13,8 +13,9 @@ use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 use Webf\Flysystem\DsnBundle\Flysystem\FailoverAdaptersLocator;
 use Webf\FlysystemFailoverBundle\DependencyInjection\WebfFlysystemFailoverExtension;
 
-class ReplaceFailoverAdaptersLocatorCompilerPass implements CompilerPassInterface
+final class ReplaceFailoverAdaptersLocatorCompilerPass implements CompilerPassInterface
 {
+    #[\Override]
     public function process(ContainerBuilder $container): void
     {
         if (!class_exists(WebfFlysystemFailoverExtension::class)) {

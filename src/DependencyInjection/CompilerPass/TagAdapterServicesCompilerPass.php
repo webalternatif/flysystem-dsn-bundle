@@ -8,8 +8,9 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 
-class TagAdapterServicesCompilerPass implements CompilerPassInterface
+final class TagAdapterServicesCompilerPass implements CompilerPassInterface
 {
+    #[\Override]
     public function process(ContainerBuilder $container): void
     {
         /**

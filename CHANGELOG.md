@@ -1,4 +1,8 @@
-## v0.6.1 (unreleased)
+## v0.7.0 (unreleased)
+
+### 💥 Breaking changes
+
+* Make classes final
 
 ### ✨ New features
 

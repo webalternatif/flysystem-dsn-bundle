@@ -16,12 +16,13 @@ use Webf\Flysystem\Dsn\Exception\UnsupportedDsnException;
 use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
 use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 
-class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
+final class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
 {
     public function __construct(private ContainerInterface $serviceLocator)
     {
     }
 
+    #[\Override]
     public function createAdapter(string $dsn): FilesystemAdapter
     {
         $dsnString = $dsn;
@@ -49,6 +50,7 @@ class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
         return $adapter;
     }
 
+    #[\Override]
     public function supports(string $dsn): bool
     {
         try {
