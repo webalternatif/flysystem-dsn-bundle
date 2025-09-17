@@ -8,18 +8,22 @@ use League\Flysystem\FilesystemAdapter;
 use Webf\Flysystem\Composite\CompositeFilesystemAdapter;
 use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
 use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdaptersLocator as BaseFailoverAdaptersLocator;
+use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdaptersLocatorInterface;
 
 /**
- * @template-extends BaseFailoverAdaptersLocator<FilesystemAdapter>
+ * @template-implements FailoverAdaptersLocatorInterface<FilesystemAdapter>
+ * @template-implements \IteratorAggregate<string, FailoverAdapter<FilesystemAdapter>>
  */
-final class FailoverAdaptersLocator extends BaseFailoverAdaptersLocator
+final readonly class FailoverAdaptersLocator implements FailoverAdaptersLocatorInterface, \IteratorAggregate
 {
+    private BaseFailoverAdaptersLocator $baseLocator;
+
     /**
      * @param iterable<FilesystemAdapter> $adapters
      */
     public function __construct(iterable $adapters)
     {
-        parent::__construct($this->getFailoverAdapters($adapters));
+        $this->baseLocator = new BaseFailoverAdaptersLocator($this->getFailoverAdapters($adapters));
     }
 
     /**
@@ -38,5 +42,17 @@ final class FailoverAdaptersLocator extends BaseFailoverAdaptersLocator
                 yield from $this->getFailoverAdapters($adapter->getInnerAdapters());
             }
         }
+    }
+
+    #[\Override]
+    public function get(string $name): FailoverAdapter
+    {
+        return $this->baseLocator->get($name);
+    }
+
+    #[\Override]
+    public function getIterator(): \Traversable
+    {
+        return $this->baseLocator->getIterator();
     }
 }

@@ -6,7 +6,7 @@ namespace Tests\Webf\Flysystem\DsnBundle\DependencyInjection;
 
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use Symfony\Component\DependencyInjection\Definition;
-use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
+use Webf\Flysystem\Dsn\AdapterFactory\FlysystemAdapterFactoryInterface;
 use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
 use Webf\Flysystem\DsnBundle\Test\TestCase;

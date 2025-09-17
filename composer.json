@@ -18,7 +18,7 @@
         "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0 || ^7.0",
         "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0 || ^7.0",
         "webalternatif/flysystem-composite": "^0.3.0",
-        "webalternatif/flysystem-dsn": "^0.6.0"
+        "webalternatif/flysystem-dsn": "^0.7.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.15",
@@ -29,8 +29,8 @@
         "league/flysystem-sftp-v3": "^3.0",
         "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^6.5",
-        "webalternatif/flysystem-failover-bundle": "^0.5.1",
-        "webalternatif/flysystem-openstack-swift": "^0.4.0"
+        "webalternatif/flysystem-failover-bundle": "^0.7.0",
+        "webalternatif/flysystem-openstack-swift": "^0.5.0"
     },
     "scripts": {
         "cs-check": "php-cs-fixer fix --dry-run",

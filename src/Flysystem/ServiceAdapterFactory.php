@@ -10,13 +10,13 @@ use Nyholm\Dsn\DsnParser;
 use Nyholm\Dsn\Exception\FunctionsNotAllowedException;
 use Nyholm\Dsn\Exception\InvalidDsnException as NyholmInvalidDsnException;
 use Psr\Container\ContainerInterface;
-use Webf\Flysystem\Dsn\Exception\InvalidDsnException;
+use Webf\Flysystem\Dsn\AdapterFactory\FlysystemAdapterFactoryInterface;
+use Webf\Flysystem\Dsn\Exception\DsnException;
 use Webf\Flysystem\Dsn\Exception\UnableToCreateAdapterException;
 use Webf\Flysystem\Dsn\Exception\UnsupportedDsnException;
-use Webf\Flysystem\Dsn\FlysystemAdapterFactoryInterface;
 use Webf\Flysystem\DsnBundle\DependencyInjection\WebfFlysystemDsnExtension;
 
-final class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
+final readonly class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
 {
     public function __construct(private ContainerInterface $serviceLocator)
     {
@@ -29,7 +29,7 @@ final class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
         try {
             $dsn = DsnParser::parse($dsn);
         } catch (NyholmInvalidDsnException $e) {
-            throw new InvalidDsnException($e->getMessage(), previous: $e);
+            throw new DsnException($e->getMessage(), previous: $e);
         }
 
         if ('service' !== $dsn->getScheme()) {
@@ -58,7 +58,7 @@ final class ServiceAdapterFactory implements FlysystemAdapterFactoryInterface
         } catch (FunctionsNotAllowedException) {
             return false;
         } catch (NyholmInvalidDsnException $e) {
-            throw new InvalidDsnException($e->getMessage(), previous: $e);
+            throw new DsnException($e->getMessage(), previous: $e);
         }
 
         return 'service' === $scheme;
