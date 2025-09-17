@@ -8,7 +8,7 @@ use League\Flysystem\FilesystemAdapter;
 use Nyholm\Dsn\DsnParser;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ServiceLocator;
-use Webf\Flysystem\Dsn\Exception\InvalidDsnException;
+use Webf\Flysystem\Dsn\Exception\DsnException;
 use Webf\Flysystem\Dsn\Exception\UnableToCreateAdapterException;
 use Webf\Flysystem\Dsn\Exception\UnsupportedDsnException;
 use Webf\Flysystem\DsnBundle\Flysystem\ServiceAdapterFactory;
@@ -39,7 +39,7 @@ class ServiceAdapterFactoryTest extends TestCase
     {
         $factory = new ServiceAdapterFactory(new ServiceLocator([]));
 
-        $this->expectException(InvalidDsnException::class);
+        $this->expectException(DsnException::class);
 
         $factory->createAdapter('Invalid DSN');
     }
@@ -88,7 +88,7 @@ class ServiceAdapterFactoryTest extends TestCase
     {
         $factory = new ServiceAdapterFactory(new ServiceLocator([]));
 
-        $this->expectException(InvalidDsnException::class);
+        $this->expectException(DsnException::class);
 
         $factory->supports('Invalid DSN');
     }

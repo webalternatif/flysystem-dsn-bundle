@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use Webf\Flysystem\Composite\CompositeFilesystemAdapter;
 use Webf\Flysystem\DsnBundle\Flysystem\FailoverAdaptersLocator;
 use Webf\FlysystemFailoverBundle\Flysystem\FailoverAdapter;
+use Webf\FlysystemFailoverBundle\MessageRepository\InMemoryMessageRepository;
 
 /**
  * @internal
@@ -21,9 +22,9 @@ class FailoverAdaptersLocatorTest extends TestCase
     {
         $locator = new FailoverAdaptersLocator([
             $this->createMock(FilesystemAdapter::class),
-            $this->createFailoverAdapter('adapter1'),
+            new FailoverAdapter('adapter1', [], new InMemoryMessageRepository()),
             $this->createMock(FilesystemAdapter::class),
-            $this->createFailoverAdapter('adapter2'),
+            new FailoverAdapter('adapter2', [], new InMemoryMessageRepository()),
         ]);
 
         $this->assertEquals(
@@ -36,31 +37,20 @@ class FailoverAdaptersLocatorTest extends TestCase
     {
         $locator = new FailoverAdaptersLocator([
             $this->createCompositeAdapter([
-                $this->createFailoverAdapter('adapter1'),
+                new FailoverAdapter('adapter1', [], new InMemoryMessageRepository()),
                 $this->createMock(FilesystemAdapter::class),
                 $this->createCompositeAdapter([
                     $this->createMock(FilesystemAdapter::class),
-                    $this->createFailoverAdapter('adapter2'),
+                    new FailoverAdapter('adapter2', [], new InMemoryMessageRepository()),
                 ]),
             ]),
-            $this->createFailoverAdapter('adapter3'),
+            new FailoverAdapter('adapter3', [], new InMemoryMessageRepository()),
         ]);
 
         $this->assertEquals(
             ['adapter1', 'adapter2', 'adapter3'],
             array_keys(iterator_to_array($locator))
         );
-    }
-
-    private function createFailoverAdapter(string $name): FilesystemAdapter
-    {
-        $adapter = $this->createMock(FailoverAdapter::class);
-        $adapter
-            ->method('getName')
-            ->willReturn($name)
-        ;
-
-        return $adapter;
     }
 
     private function createCompositeAdapter(array $innerAdapters = []): FilesystemAdapter
