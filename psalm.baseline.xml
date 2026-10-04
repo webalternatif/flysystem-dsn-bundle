@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+<files psalm-version="6.19.1@e2ca44251c1f1aa2e35452d426895746b47de64e">
   <file src="src/DependencyInjection/CompilerPass/TagAdapterServicesCompilerPass.php">
-    <MissingThrowsDocblock occurrences="1">
-      <code>getParameter</code>
+    <MissingThrowsDocblock>
+      <code><![CDATA[getParameter]]></code>
     </MissingThrowsDocblock>
+  </file>
+  <file src="src/WebfFlysystemDsnBundle.php">
+    <DeprecatedInterface>
+      <code><![CDATA[WebfFlysystemDsnBundle]]></code>
+    </DeprecatedInterface>
   </file>
 </files>

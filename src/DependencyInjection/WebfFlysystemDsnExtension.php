@@ -161,7 +161,7 @@ final class WebfFlysystemDsnExtension extends Extension
             (new Definition(ServiceAdapterFactory::class))
                 ->setArguments([
                     new ServiceLocatorArgument(
-                        new TaggedIteratorArgument(self::ADAPTER_SERVICE_TAG_NAME, null, null, true)
+                        new TaggedIteratorArgument(self::ADAPTER_SERVICE_TAG_NAME, needsIndexes: true)
                     ),
                 ])
                 ->addTag(self::ADAPTER_FACTORY_TAG_NAME)
