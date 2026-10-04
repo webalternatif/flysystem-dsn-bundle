@@ -1,3 +1,13 @@
+## v0.8.0 (unreleased)
+
+### 💥 Breaking changes
+
+* Bump `webalternatif/flysystem-composite` version to `^0.4.0`
+
+### ✨ New features
+
+* Add support of PHP 8.5
+
 ## v0.8.0 (September 17, 2025)
 
 ### 💥 Breaking changes
