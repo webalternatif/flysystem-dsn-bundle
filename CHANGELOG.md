@@ -1,4 +1,4 @@
-## v0.8.0 (unreleased)
+## v0.9.0 (October 4, 2026)
 
 ### 💥 Breaking changes
 
