@@ -2,13 +2,13 @@
 
 ### 💥 Breaking changes
 
-* Bump `webalternatif/flysystem-composite` version to `^0.4.0`
-* Drop support of Symfony ^4.4, >=5.3 && <5.4, >=6.0 && <6.4 and >=7.0 && <7.4
+* Bump `webalternatif/flysystem-composite` version to `^0.4.0` ([#11](https://github.com/webalternatif/flysystem-dsn-bundle/pull/11))
+* Drop support of Symfony ^4.4, >=5.3 && <5.4, >=6.0 && <6.4 and >=7.0 && <7.4 ([#11](https://github.com/webalternatif/flysystem-dsn-bundle/pull/11))
 
 ### ✨ New features
 
-* Add support of PHP 8.5
-* Add support of Symfony ^8.1
+* Add support of PHP 8.5 ([#11](https://github.com/webalternatif/flysystem-dsn-bundle/pull/11))
+* Add support of Symfony ^8.1 ([#11](https://github.com/webalternatif/flysystem-dsn-bundle/pull/11))
 
 ## v0.8.0 (September 17, 2025)
 
