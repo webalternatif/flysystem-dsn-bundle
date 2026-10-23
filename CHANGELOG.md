@@ -1,3 +1,9 @@
+## v0.10.0 (unreleased)
+
+### 💥 Breaking changes
+
+* Bump `webalternatif/flysystem-dsn` version to `^0.8.0`
+
 ## v0.9.0 (October 4, 2026)
 
 ### 💥 Breaking changes
